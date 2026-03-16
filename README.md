@@ -10,7 +10,7 @@ A set of PowerShell scripts for auditing mailbox activity in Exchange 2019 using
 |---|---|
 | `Check-RecipientActivity.ps1` | Checks whether addresses have **received** mail in the last N days |
 | `Check-SenderActivity.ps1` | Checks whether addresses have **sent** mail in the last N days |
-| `Check-MailActivity.ps1` | Checks both **sent and received** activity in a single pass |
+| `Check-MailActivity.ps1` | Checks both **sent and/or received** activity in a single pass |
 
 All three scripts query **all Hub Transport / Mailbox servers** in the organisation automatically, ensuring no DAG node is missed.
 
