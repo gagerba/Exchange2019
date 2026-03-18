@@ -217,9 +217,9 @@ while ($pending.Count -gt 0) {
     $running = ($pending | Where-Object { $_.Handle.IsCompleted -eq $false }).Count
 
     # Build a live status line that shows in-flight addresses
-    $inFlight = ($pending |
+    $inFlight = @($pending |
         Where-Object { -not $_.Handle.IsCompleted } |
-        Select-Object -ExpandProperty Address |
+        ForEach-Object { $_.Address } |
         Select-Object -First 5) -join ', '
     if ($pending.Count - ($pending | Where-Object { $_.Handle.IsCompleted }).Count -gt 5) {
         $inFlight += ', ...'
