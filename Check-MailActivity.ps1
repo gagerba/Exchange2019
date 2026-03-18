@@ -222,13 +222,13 @@ while ($pending.Count -gt 0) {
         Select-Object -ExpandProperty Address |
         Select-Object -First 5) -join ', '
     if ($pending.Count - ($pending | Where-Object { $_.Handle.IsCompleted }).Count -gt 5) {
-        $inFlight += ', …'
+        $inFlight += ', ...'
     }
 
     $pct = [int](($completed / $total) * 100)
     Write-Progress `
         -Activity         "Checking mail activity  ($completed / $total complete)" `
-        -Status           "Running: $running job(s) — $inFlight" `
+        -Status           "Running: $running job(s) - $inFlight" `
         -PercentComplete  $pct `
         -SecondsRemaining -1     # suppress unreliable ETA
 
